@@ -1,3 +1,4 @@
+import libraryApp.AddTitlePage;
 import libraryApp.LoginPage;
 import libraryApp.TitlesPage;
 import org.junit.After;
@@ -14,6 +15,7 @@ public class TestLibraryApp {
     WebDriver driver;
     LoginPage loginPage = new LoginPage(driver);
     TitlesPage titlesPage = new TitlesPage(driver);
+    AddTitlePage addTitlePage = new AddTitlePage(driver);
 
 
     @Before
@@ -24,9 +26,9 @@ public class TestLibraryApp {
     }
 
     @After
-    public void tearDown() {
-        driver.close();
-    }
+//    public void tearDown() {
+//        driver.close();
+//    }
 
     @Test
     public void testLoginPage() {

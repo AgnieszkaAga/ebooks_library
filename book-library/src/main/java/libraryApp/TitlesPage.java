@@ -20,18 +20,20 @@ public class TitlesPage extends AbstractPage{
 
     @FindBy(css = "button[name='add-title-button']")
     static WebElement addTitleButton;
+    private AddTitlePage addTitlePage;
+    private TitlesPage titlesPage;
 
     public TitlesPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
-    public AddTitlePage addNewTitle(WebDriver driver) {
+    public void addNewTitle(WebDriver driver) {
         PageFactory.initElements(driver, TitlesPage.class);
-        WebDriverWait wait= new WebDriverWait(driver, 10);
+        WebDriverWait wait= new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(addTitleButton));
         addTitleButton.click();
         AddTitlePage addTitlePage = new AddTitlePage(driver);
-        return addTitlePage;
-    }
+        addTitlePage.addingNewTitle(driver);
+        }
 }

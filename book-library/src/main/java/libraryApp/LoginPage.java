@@ -27,7 +27,7 @@ public class LoginPage extends AbstractPage {
 
     public TitlesPage loginToSystem(WebDriver driver) {
         PageFactory.initElements(driver, LoginPage.class);
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(loginField));
         loginField.sendKeys("agnieszka");
         passwordField.sendKeys("agapass");

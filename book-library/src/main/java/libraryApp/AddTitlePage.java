@@ -32,7 +32,7 @@ public class AddTitlePage extends AbstractPage {
     }
 
     public void addingNewTitle(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOf(newTitleField));
         newTitleField.sendKeys("The English Patient");
         newAuthorField.sendKeys("Michael Ondaatje");

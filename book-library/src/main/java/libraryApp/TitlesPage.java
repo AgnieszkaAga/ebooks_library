@@ -26,6 +26,7 @@ public class TitlesPage extends AbstractPage{
 
     @FindBy(css = "button[name='add-title-button']")
     static WebElement addTitleButton;
+
     private AddTitlePage addTitlePage;
     private TitlesPage titlesPage;
     private ListOfCopiesPage listOfCopiesPage;
@@ -43,7 +44,7 @@ public class TitlesPage extends AbstractPage{
         addTitlePage.addingNewTitle(driver);
         }
 
-    public void addNewItem(WebDriver driver) {
+    public void addNewItemAndRent(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver,120);
         wait.until(ExpectedConditions.elementToBeClickable(showCopiesButton.get(0)));
         showCopiesButton.get(0).click();

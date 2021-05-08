@@ -34,4 +34,16 @@ public class RentsHistoryPage extends AbstractPage {
         AddRentForm addRentForm = new AddRentForm(driver);
         addRentForm.addingRent(driver);
     }
+
+    public void deleteAllRents(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, 300);
+        wait.until(ExpectedConditions.elementToBeClickable(removeRentButton.get(0)));
+        if(removeRentButton.size() > 0) {
+            for (WebElement element : removeRentButton) {
+                wait.until(ExpectedConditions.elementToBeClickable(removeRentButton.get(0)));
+                element.click();
+            }
+            System.out.println("List size: =============="+removeRentButton.size());
+        }
+    }
 }

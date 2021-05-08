@@ -1,11 +1,12 @@
-import libraryApp.AddTitlePage;
 import libraryApp.LoginPage;
+import libraryApp.RentsHistoryPage;
 import libraryApp.TitlesPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class TestLibraryApp {
     WebDriver driver;
     LoginPage loginPage = new LoginPage(driver);
     TitlesPage titlesPage = new TitlesPage(driver);
+    RentsHistoryPage rentsHistoryPage = new RentsHistoryPage(driver);
 
 
     @Before
@@ -45,6 +47,13 @@ public class TestLibraryApp {
     public void testAddingFunction() {
         loginPage.loginToSystem(driver);
         titlesPage.addNewTitle(driver);
-        titlesPage.addNewItem(driver);
+        titlesPage.addNewItemAndRent(driver);
+    }
+    @Test
+    public void testAddingAndDeleting() {
+        loginPage.loginToSystem(driver);
+        titlesPage.addNewTitle(driver);
+        titlesPage.addNewItemAndRent(driver);
+        rentsHistoryPage.deleteAllRents(driver);
     }
 }
